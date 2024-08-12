@@ -48,17 +48,12 @@ function Home() {
         return () => abortController.abort();
     }, []);
 
-    console.log(decks);
-
     if (error) {
         return <ErrorMessage error={error} />;
     }
 
     return (
         <>
-            {/* Temporary Home indicator */}
-            <h2 className="row">Home</h2>
-
             {/* A Create Deck button is shown, and clicking it brings the user to the Create Deck screen. */}
             <button className="btn btn-secondary btn-lg" onClick={handleCreateDeck}>+ Create Deck</button>
 
@@ -69,18 +64,24 @@ function Home() {
                     decks.map((deck) => (
                         <div className="card" key={deck.id}>
                             <div className="card-body">
-                                <h4 className="card-title ">{deck.name}</h4>
+                                <h3 className="card-title">{deck.name}</h3>
 
                                 <p className="card-text">{deck.description}</p>
 
                                 {/* Clicking the View button brings the user to the Deck screen. */}
-                                <button type="button" className="btn btn-primary mr-1" onClick={handleViewDeck}>View</button>
+                                <button type="button" className="btn btn-primary mr-1"
+                                        onClick={() => handleViewDeck(deck.id)}>View
+                                </button>
 
                                 {/* Clicking the Study button brings the user to the Study screen. */}
-                                <button type="button" className="btn btn-secondary mr-1" onClick={handleStudyDeck}>Study</button>
+                                <button type="button" className="btn btn-secondary mr-1"
+                                        onClick={() => handleStudyDeck(deck.id)}>Study
+                                </button>
 
                                 {/* Clicking the Delete button shows a warning message before deleting the deck. */}
-                                <button type="button" className="btn btn-danger" onClick={handleDeleteDeck}>Delete</button>
+                                <button type="button" className="btn btn-danger"
+                                        onClick={() => handleDeleteDeck(deck.id)}>Delete
+                                </button>
 
                                 <div className="row">
                                     <div className="col text-right">
