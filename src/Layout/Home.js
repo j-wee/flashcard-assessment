@@ -59,36 +59,37 @@ function Home() {
 
             {/* Existing decks are each shown with the deck name, the number of cards, and a Study, View, and Delete button. */}
             <div className="container row mt-3">
-
                 {
                     decks.map((deck) => (
-                        <div className="card" key={deck.id}>
-                            <div className="card-body">
-                                <h3 className="card-title">{deck.name}</h3>
+                        <div className="col-12" key={deck.id}>
+                            <div className="card" key={deck.id}>
+                                <div className="card-body">
+                                    <h3 className="card-title">{deck.name}</h3>
 
-                                <p className="card-text">{deck.description}</p>
+                                    <p className="card-text">{deck.description}</p>
 
-                                {/* Clicking the View button brings the user to the Deck screen. */}
-                                <button type="button" className="btn btn-primary mr-1"
-                                        onClick={() => handleViewDeck(deck.id)}>View
-                                </button>
+                                    {/* Clicking the View button brings the user to the Deck screen. */}
+                                    <button type="button" className="btn btn-primary mr-1"
+                                            onClick={() => handleViewDeck(deck.id)}>View
+                                    </button>
 
-                                {/* Clicking the Study button brings the user to the Study screen. */}
-                                <button type="button" className="btn btn-secondary mr-1"
-                                        onClick={() => handleStudyDeck(deck.id)}>Study
-                                </button>
+                                    {/* Clicking the Study button brings the user to the Study screen. */}
+                                    <button type="button" className="btn btn-secondary mr-1"
+                                            onClick={() => handleStudyDeck(deck.id)}>Study
+                                    </button>
 
-                                {/* Clicking the Delete button shows a warning message before deleting the deck. */}
-                                <button type="button" className="btn btn-danger"
-                                        onClick={() => handleDeleteDeck(deck.id)}>Delete
-                                </button>
+                                    {/* Clicking the Delete button shows a warning message before deleting the deck. */}
+                                    <button type="button" className="btn btn-danger"
+                                            onClick={() => handleDeleteDeck(deck.id)}>Delete
+                                    </button>
 
-                                <div className="row">
-                                    <div className="col text-right">
-                                        <span className="badge badge-light">{deck.cards.length} cards</span>
+                                    <div className="row">
+                                        <div className="col text-right">
+                                            <span className="badge badge-light">{deck.cards.length} cards</span>
+                                        </div>
                                     </div>
-                                </div>
 
+                                </div>
                             </div>
                         </div>
                     ))
