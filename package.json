@@ -2,7 +2,7 @@
   "name": "flashcard",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://j-wee.github.io/flashcard-assessment/",
+  "homepage": "https://j-wee.github.io/flashcard-assessment",
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
@@ -16,6 +16,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "predeploy": "npm run build",
     "start": "concurrently \"npm run start:server\" \"npm run start:react\"",
     "start:react": "react-scripts --openssl-legacy-provider start",
     "start:server": "json-server ./data/db.json --port 8080",
