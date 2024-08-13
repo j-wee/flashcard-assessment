@@ -142,7 +142,7 @@ function Deck() {
                                                     </button>
 
                                                     <button type="button" className="btn btn-danger"
-                                                            onClick={() => handleDeleteCard(card.id)}>
+                                                            onClick={() => handleDeleteCard(card.id, deckId)}>
                                                         Delete
                                                     </button>
                                                 </div>
