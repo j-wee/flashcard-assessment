@@ -10,7 +10,7 @@ function App() {
   return (
     <div className="app-routes">
         <Layout />         
-      </div>
+    </div>
   );
 }
 
