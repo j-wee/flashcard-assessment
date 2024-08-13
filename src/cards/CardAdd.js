@@ -30,7 +30,7 @@ function CardAdd() {
     }
 
     function handleDone() {
-        navigate(-1);
+        navigate(`/decks/${deckId}`);
     }
 
     useEffect(() => {
