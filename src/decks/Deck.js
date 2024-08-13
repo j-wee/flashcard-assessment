@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Outlet, useLocation, useNavigate, useParams } from "react-router-dom";
+import { Link, Outlet, useLocation, useNavigate, useParams } from "react-router-dom";
 import { deleteCard, deleteDeck, listDecks, readDeck } from "../utils/api";
 
 function Deck() {
@@ -83,7 +83,7 @@ function Deck() {
                             {/* There is a breadcrumb navigation bar with a link to home / followed by the name of the deck (e.g., Home/React Router). */}
                             <nav aria-label="breadcrumb">
                                 <ol className="breadcrumb">
-                                    <li className="breadcrumb-item"><a href="/">Home</a></li>
+                                    <li className="breadcrumb-item"><Link to="/">Home</Link></li>
                                     <li className="breadcrumb-item active" aria-current="page">{deck.name}</li>
                                 </ol>
                             </nav>
