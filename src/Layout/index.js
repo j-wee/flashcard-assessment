@@ -17,7 +17,7 @@ function Layout() {
       <div className="container">
         {/* TODO: Implement the screen starting here */}
           <Routes>
-              <Route path="/" element={<Home />} />
+              <Route exact path="/" element={<Home />} />
               <Route path="/decks/new" element={<DeckAdd />} />
               <Route path="/decks/:deckId" element={<Deck />}>
                   <Route path="study" element={<DeckStudy />} />
