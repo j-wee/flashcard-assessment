@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { readDeck } from "../utils/api";
-import ErrorMessage from "../Layout/ErrorMessage";
 
 function DeckStudy() {
     const { deckId } = useParams();
     const [deck, setDeck] = useState({});
-    const [error, setError] = useState(undefined);
     const [isFlipped, setIsFlipped] = useState(false);
     const [cardIndex, setCardIndex] = useState(0);
     const cardCount = deck.cards ? deck.cards.length : 0;
@@ -41,14 +39,10 @@ function DeckStudy() {
 
         readDeck(deckId, abortController.signal)
             .then(setDeck)
-            .catch(setError);
+            .catch(console.log);
 
         return () => abortController.abort();
     }, [deckId]);
-
-    if (error) {
-        return <ErrorMessage error={error} />;
-    }
 
     return (
         <>

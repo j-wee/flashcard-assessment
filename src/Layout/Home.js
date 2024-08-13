@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { deleteDeck, listDecks } from "../utils/api";
-import ErrorMessage from "./ErrorMessage";
 
 function Home() {
     const [decks, setDecks] = useState([]);
-    const [error, setError] = useState(undefined);
 
     const navigate = useNavigate();
 
@@ -34,7 +32,7 @@ function Home() {
             await deleteDeck(deckId, abortController.signal)
                 .then(() => listDecks(abortController.signal))
                 .then(setDecks)
-                .catch(setError);
+                .catch(console.log);
         }
     }
 
@@ -43,14 +41,10 @@ function Home() {
 
         listDecks(abortController.signal)
             .then(setDecks)
-            .catch(setError);
+            .catch(console.log);
 
         return () => abortController.abort();
     }, []);
-
-    if (error) {
-        return <ErrorMessage error={error} />;
-    }
 
     return (
         <>
