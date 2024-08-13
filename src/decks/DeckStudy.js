@@ -24,7 +24,7 @@ function DeckStudy() {
             setCardIndex(cardIndex + 1);
             setIsFlipped(false);
         } else {
-            const result = window.confirm("Restart cards?\n\nClick 'cancel' to return to the home page.");
+            const result = window.confirm("Restart cards?\n\nClick 'Cancel' to return to the home page.");
             if (result) {
                 setCardIndex(0);
                 setIsFlipped(false);

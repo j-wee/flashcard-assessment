@@ -4,7 +4,7 @@ import { updateDeck, readDeck } from "../utils/api";
 
 function DeckEdit() {
     const initialFormState = {
-        id: "",
+        id: 0,
         name: "",
         description: "",
     };
@@ -44,7 +44,7 @@ function DeckEdit() {
         readDeck(deckId, abortController.signal)
             .then((deck) => {
                 setFormData({
-                    id: deckId,
+                    id: Number(deckId),
                     name: deck.name || "",
                     description: deck.description || ""
                 });

@@ -1,12 +1,13 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { updateCard, readCard } from "../utils/api";
+import { updateCard, readCard, readDeck } from "../utils/api";
 
 function CardEdit() {
     const initialFormState = {
-        id: "",
         front: "",
         back: "",
+        deckId: 0,
+        id: 0,
     };
     const [deck, setDeck] = useState({});
     const [formData, setFormData] = useState({ ...initialFormState });
@@ -39,10 +40,15 @@ function CardEdit() {
     useEffect(() => {
         const abortController = new AbortController();
 
+        readDeck(deckId, abortController.signal)
+            .then(setDeck)
+            .catch(console.log);
+
         readCard(cardId, abortController.signal)
             .then((card) => {
                 setFormData({
-                    id: cardId,
+                    id: Number(cardId),
+                    deckId: Number(deckId),
                     front: card.front || "",
                     back: card.back || ""
                 });
@@ -51,7 +57,7 @@ function CardEdit() {
             .catch(console.log);
 
         return () => abortController.abort();
-    }, [deckId]);
+    }, [deckId, cardId]);
 
     if (loading) {
         return <p>Loading...</p>; // Show a loading state while fetching data

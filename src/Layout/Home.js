@@ -89,6 +89,7 @@ function Home() {
                     ))
                 }
             </div>
+            <br/>
         </>
     );
 }
