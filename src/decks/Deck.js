@@ -72,7 +72,7 @@ function Deck() {
             .catch(console.log);
 
         return () => abortController.abort();
-    }, [deckId]);
+    }, [deckId, location]);
 
     return (
         <div>

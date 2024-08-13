@@ -65,9 +65,10 @@ function DeckAdd() {
                 <div className="form-group">
                     <label htmlFor="name">Name</label>
                     <input
-                        type="name"
+                        type="text"
                         className="form-control"
                         id="name"
+                        name="name"
                         aria-describedby="name"
                         placeholder="Deck Name"
                         onChange={handleChange}
@@ -78,6 +79,7 @@ function DeckAdd() {
                     <textarea
                         className="form-control"
                         id="description"
+                        name="description"
                         placeholder="Brief description of the deck"
                         rows="3"
                         onChange={handleChange}
